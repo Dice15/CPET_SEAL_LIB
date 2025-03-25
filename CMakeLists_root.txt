@@ -1,0 +1,50 @@
+﻿# root CMakeLists.txt
+# move this file in ROOT DIRECTORY.
+# also change project name into yours.
+
+cmake_minimum_required (VERSION 3.8)
+
+set(PROJECT_NAME "SEAL_TEST") # change project name.
+project(${PROJECT_NAME})
+
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+if (POLICY CMP0141)
+  cmake_policy(SET CMP0141 NEW)
+  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
+endif()
+
+add_subdirectory(CPET_SEAL_LIB)
+add_executable(${PROJECT_NAME} "${PROJECT_NAME}.cpp" "${PROJECT_NAME}.h")
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+    set_property( TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
+endif()
+
+# === SEAL 라이브러리 설정 ===
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(SEAL_LIB_DIR "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/lib/Debug")
+else()
+    set(SEAL_LIB_DIR "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/lib/Release")
+endif()
+
+set(SEAL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/native/src")
+
+# include & lib path 추가
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${CMAKE_SOURCE_DIR}/CPET_SEAL/native/src"
+)
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/native/src"
+)
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/thirdparty//msgsl-src/include"
+)
+
+
+target_link_directories(${PROJECT_NAME} PRIVATE ${SEAL_LIB_DIR})
+
+# link CPET_LIB library.
+target_link_libraries(${PROJECT_NAME} PRIVATE CPET seal-4.1)
