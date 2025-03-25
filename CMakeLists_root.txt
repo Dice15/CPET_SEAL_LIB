@@ -19,8 +19,6 @@ endif()
 add_subdirectory(CPET_SEAL_LIB)
 add_executable(${PROJECT_NAME} "${PROJECT_NAME}.cpp" "${PROJECT_NAME}.h")
 
-add_executable (${PROJECT_NAME} "SEAL_TEST.cpp" "SEAL_TEST.h")
-
 if (CMAKE_VERSION VERSION_GREATER 3.12)
     set_property( TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 endif()
