@@ -20,5 +20,5 @@ target_include_directories(CPET PRIVATE
     "${CMAKE_SOURCE_DIR}/CPET_SEAL/native/src"
 )
 target_include_directories(CPET PRIVATE
-    "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/thirdparty//msgsl-src/include"
+    "${CMAKE_SOURCE_DIR}/CPET_SEAL/build/thirdparty/msgsl-src/include"
 )
