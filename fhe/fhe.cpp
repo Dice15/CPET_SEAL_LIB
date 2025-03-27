@@ -335,7 +335,7 @@ namespace fhe
 
         if (ciphertext1.scale() == ciphertext2.scale() && ciphertext1.coeff_modulus_size() == ciphertext2.coeff_modulus_size())
         {
-            throw std::invalid_argument("ÀÌ¹Ì µÎ ¾ÏÈ£¹®ÀÇ ¸ðµâ·¯½º »çÀÌÁî¿Í ½ºÄÉÀÏÀÌ °°½À´Ï´Ù.");
+            throw std::invalid_argument("ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½â·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
 
         // In the CKKS scheme, if encoded with the same settings, ciphertexts with the same modulus size have the same scale. However, the reverse is not guaranteed.
@@ -372,7 +372,7 @@ namespace fhe
 
         if (ciphertext.scale() == plaintext.scale() && ciphertext.parms_id() == plaintext.parms_id())
         {
-            throw std::invalid_argument("ÀÌ¹Ì ¾ÏÈ£¹®°ú Æò¹®ÀÇ ¸ðµâ·¯½º »çÀÌÁî¿Í ½ºÄÉÀÏÀÌ °°½À´Ï´Ù.");
+            throw std::invalid_argument("ï¿½Ì¹ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½â·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
 
         if (ciphertext.scale() != plaintext.scale())

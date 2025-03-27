@@ -1,13 +1,9 @@
 # CPET_SEAL_LIB/fhe/CMakeLists.txt
 
 # 라이브러리 생성
-add_library(CPET STATIC
-    fhe.cpp
-    fhe.h
-    fhebuilder.cpp
-    fhebuilder.h
-    common.h
-)
+file(GLOB CPET_SOURCES "*.cpp" "*.h")
+add_library(CPET STATIC ${CPET_SOURCES})
+
 
 # 내부 헤더 경로
 target_include_directories(CPET PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

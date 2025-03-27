@@ -3,3 +3,4 @@
 project(CPET_SEAL_LIB)
 
 add_subdirectory(fhe)
+add_subdirectory(arithmetic)
