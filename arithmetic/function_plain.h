@@ -3,10 +3,9 @@
 
 #include "arithmetic.h"
 
-// Function calculation related to sgn
-double cal_Cn(int n);
-vector<double> compute_F(int n);
-vector<double> compute_H(int n);
-vector<double> compute_G(int n, double tau, double pre, double a, double b);
+double_t cal_Cn(int32_t n);
+std::vector<double_t> compute_F(int32_t n);
+std::vector<double_t> compute_H(int32_t n);
+std::vector<double_t> compute_G(int32_t n, double_t tau, double_t pre, double_t a, double_t b);
 
 #endif // FUNCTION_PLAIN_H
